@@ -1,28 +1,38 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement } from "chart.js";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+} from "chart.js";
 
-ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const data = {
-  labels: ["Jan", "Feb", "Mar", "Apr"],
-  datasets: [
-    {
-      label: "Temperature (°C)",
-      data: [27, 28, 29, 28.5],
-      borderColor: "blue",
-      fill: false
-    }
-  ]
-};
+function ChartView() {
+  const data = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+    datasets: [
+      {
+        label: "Temperature (°C)",
+        data: [26, 27, 28, 29, 27],
+        borderColor: "rgb(59, 130, 246)",
+        backgroundColor: "rgba(59, 130, 246, 0.5)"
+      },
+      {
+        label: "Salinity (PSU)",
+        data: [34, 35, 36, 35, 34],
+        borderColor: "rgb(16, 185, 129)",
+        backgroundColor: "rgba(16, 185, 129, 0.5)"
+      }
+    ]
+  };
 
-const ChartView = () => {
-  return (
-    <div className="bg-white p-4 rounded shadow">
-      <h2 className="text-lg font-bold mb-2">Ocean Temperature Trends</h2>
-      <Line data={data} />
-    </div>
-  );
-};
+  return <Line data={data} />;
+}
 
 export default ChartView;
