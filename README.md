@@ -1,26 +1,36 @@
 Marine Data Platform – Starter Project
 
 Project Structure
-```
-marine-platform/
-│── backend/              # Node.js + Express API
-│   ├── server.js         # Main server entry point
-│   ├── routes/           # API route handlers
-│   │   ├── species.js    # Sample species API
-│   │   ├── ocean.js      # Sample ocean data API
+```marine-platform/
+│── README.md                 # Project documentation
+│── .gitignore                # Root ignore (optional, can also keep per folder)
+
+│── backend/                  # Node.js + Express backend
+│   ├── server.js             # Main Express server
+│   ├── schema.sql            # Database schema + sample data
+│   ├── package.json          # Backend dependencies
+│   ├── .env.example          # Example env template (safe to commit)
+│   ├── .gitignore            # Ignore node_modules + .env
+│
 │   ├── config/
-│   │   ├── db.js         # Database connection (PostgreSQL)
+│   │   └── db.js             # PostgreSQL connection pool
 │
-│── frontend/             # React.js frontend
+│   ├── routes/
+│   │   ├── species.js        # API for species data
+│   │   └── ocean.js          # API for ocean parameters
+│
+│── frontend/                 # React frontend
 │   ├── package.json
-│   ├── src/
-│   │   ├── App.js        # Main app component
-│   │   ├── components/
-│   │   │   ├── Navbar.js # Top navigation bar
-│   │   │   ├── MapView.js# Leaflet-based map
-│   │   │   ├── ChartView.js # Chart.js visualization
-│
-│── README.md             # Project documentation
+│   ├── .gitignore
+│   ├── public/
+│   └── src/
+│       ├── App.js            # Main React app
+│       ├── index.js          # React entry point
+│       ├── components/
+│       │   ├── Navbar.js     # Navigation bar
+│       │   ├── MapView.js    # Leaflet map
+│       │   └── ChartView.js  # Chart.js visualization
+
 ```
 Tech Stack
 Frontend
