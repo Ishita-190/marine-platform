@@ -1,18 +1,13 @@
-// Example PostgreSQL and MongoDB setup
+// backend/config/db.js
 const { Pool } = require("pg");
-const mongoose = require("mongoose");
+require("dotenv").config();
 
-const pgPool = new Pool({
-  user: "your_user",
-  host: "localhost",
-  database: "marine",
-  password: "your_password",
-  port: 5432
+const pool = new Pool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
 });
 
-mongoose.connect("mongodb://localhost:27017/marine", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
-
-module.exports = { pgPool, mongoose };
+module.exports = pool;
