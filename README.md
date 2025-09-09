@@ -1,35 +1,42 @@
 Marine Data Platform – Starter Project
 
 Project Structure
-```marine-platform/
+```
+marine-platform/
 │── README.md                 # Project documentation
-│── .gitignore                # Root ignore (optional, can also keep per folder)
-
-│── backend/                  # Node.js + Express backend
+│── .gitignore                # Root ignore (optional, global)
+│
+├── backend/                  # Node.js + Express backend
 │   ├── server.js             # Main Express server
 │   ├── schema.sql            # Database schema + sample data
 │   ├── package.json          # Backend dependencies
-│   ├── .env.example          # Example env template (safe to commit)
+│   ├── .env.example          # Example env template
 │   ├── .gitignore            # Ignore node_modules + .env
 │
 │   ├── config/
 │   │   └── db.js             # PostgreSQL connection pool
 │
-│   ├── routes/
-│   │   ├── species.js        # API for species data
-│   │   └── ocean.js          # API for ocean parameters
+│   └── routes/
+│       ├── species.js        # API for species data
+│       └── ocean.js          # API for ocean parameters
 │
-│── frontend/                 # React frontend
-│   ├── package.json
-│   ├── .gitignore
+├── frontend/                 # React frontend (JavaScript)
+│   ├── package.json          # Frontend dependencies
+│   ├── tailwind.config.js    # Tailwind CSS config
+│   ├── postcss.config.js     # PostCSS config for Tailwind
+│   ├── .gitignore            # Ignore node_modules, build, env files
+│
 │   ├── public/
+│   │   └── index.html        # Main HTML entry point
+│
 │   └── src/
-│       ├── App.js            # Main React app
 │       ├── index.js          # React entry point
-│       ├── components/
-│       │   ├── Navbar.js     # Navigation bar
-│       │   ├── MapView.js    # Leaflet map
-│       │   └── ChartView.js  # Chart.js visualization
+│       ├── index.css         # Tailwind + global styles
+│       ├── App.js            # Main App component
+│       └── components/
+│           ├── Navbar.js     # Top navigation bar
+│           ├── MapView.js    # Leaflet map
+│           └── ChartView.js  # Chart.js visualization
 
 ```
 Tech Stack
