@@ -57,6 +57,7 @@ npm install express cors pg
 node server.js
 ```
 Backend runs at: http://localhost:5000
+
 3. Setup Frontend
 ```
 cd frontend
