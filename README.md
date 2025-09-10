@@ -73,3 +73,6 @@ npm install react-leaflet leaflet chart.js react-chartjs-2 tailwindcss
 npm start
 ```
 Frontend runs at: http://localhost:3000
+
+## Contributers
+-Janvee
