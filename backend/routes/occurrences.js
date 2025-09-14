@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
         o.life_stage,
         o.event_date,
         o.habitat,
+        o.basis_of_record,
         l.water_body,
         l.country,
         l.locality,
@@ -23,8 +24,7 @@ router.get('/', async (req, res) => {
       FROM marine_occurrences o
       JOIN species s ON o.species_id = s.id
       JOIN locations l ON o.location_id = l.id
-      ORDER BY o.event_date DESC 
-      LIMIT 100
+      ORDER BY o.event_date DESC
     `);
     res.json(result.rows);
   } catch (err) {

@@ -18,6 +18,12 @@ function Navbar({ view, setView }) {
           >
             Chart View
           </button>
+          <button
+            onClick={() => setView('dataset')}
+            className={`px-4 py-2 rounded ${view === 'dataset' ? 'bg-blue-800' : 'bg-blue-500'}`}
+          >
+            Dataset
+          </button>
         </div>
       </div>
     </nav>
