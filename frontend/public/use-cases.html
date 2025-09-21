@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARINIX - Use Cases</title>
+    <meta name="description" content="Explore real-world applications of MARINIX marine data platform">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Icons and site styles for global navbar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Use the exact reference stylesheet (renamed folder without spaces) -->
+    <link rel="stylesheet" href="use-cases/use-cases.css">
+</head>
+<body>
+    <!-- Global Navigation (copied from index.html) -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-water"></i>
+                MARINIX
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="index.html#datasets">Datasets</a></li>
+                <li><a href="visualization.html">Visualization</a></li>
+                <li><a href="#" class="active">Use Cases</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="index.html#contact" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Get Started</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Main Content -->
+    <section class="use-cases">
+        <h1 class="page-title">Our Use Cases</h1>
+
+        <div class="use-case">
+            <img src="https://i.pinimg.com/736x/1a/d2/d8/1ad2d81e76aed13e211da5e546333695.jpg" alt="Marine Biodiversity Monitoring">
+            <div class="text">
+                <h2>1. Marine Biodiversity Monitoring</h2>
+                <p>Monitoring the variety and population of marine species helps in assessing the health of oceans. By using datasets on fish counts, coral coverage, and migratory patterns, conservationists can identify endangered species and design protective measures.</p>
+            </div>
+        </div>
+
+        <div class="use-case reverse">
+            <img src="https://i.pinimg.com/1200x/f9/74/17/f974170b0bf86c3dc4fb3edbba9edc0c.jpg" alt="Sustainable Fisheries Management">
+            <div class="text">
+                <h2>2. Sustainable Fisheries Management</h2>
+                <p>Overfishing poses a serious threat to marine ecosystems. Data-driven fisheries management allows regulators to track catch volumes, identify overexploited regions, and enforce sustainable fishing practices. This helps maintain balance between human demand and ocean life.</p>
+            </div>
+        </div>
+
+        <div class="use-case">
+            <img src="https://i.pinimg.com/736x/36/f7/f0/36f7f09d09c4d021a839888f1e8f305d.jpg" alt="Ocean Pollution Tracking">
+            <div class="text">
+                <h2>3. Ocean Pollution Tracking</h2>
+                <p>Pollution from plastics, chemicals, and oil spills is one of the biggest dangers to marine ecosystems. Ocean datasets can be used to analyze pollution levels, identify high-risk zones, and suggest clean-up strategies to protect marine habitats.</p>
+            </div>
+        </div>
+
+        <div class="use-case reverse">
+            <img src="https://i.pinimg.com/736x/b0/5f/da/b05fdae2edd015c0de79565c674155a4.jpg" alt="Climate Change Impact on Oceans">
+            <div class="text">
+                <h2>4. Climate Change Impact on Oceans</h2>
+                <p>Global warming is altering ocean currents, increasing water temperatures, and threatening marine life. By analyzing ocean temperature data, researchers can study the impact of climate change and predict risks like coral bleaching and species migration.</p>
+            </div>
+        </div>
+
+        <div class="use-case">
+            <img src="https://i.pinimg.com/1200x/26/6c/67/266c671d3004e25356a7c83d14907f6d.jpg" alt="Smart Coastal & Disaster Management">
+            <div class="text">
+                <h2>5. Smart Coastal & Disaster Management</h2>
+                <p>Oceans play a major role in natural disasters like cyclones and tsunamis. Data-driven models can predict coastal flooding, storm surges, and wave patterns, enabling early warning systems that help save lives and reduce economic damage.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+      // Mobile menu toggle for global navbar
+      (function(){
+        const toggle = document.getElementById('mobile-menu-toggle');
+        const nav = document.querySelector('.nav-links');
+        if (toggle && nav) {
+          toggle.addEventListener('click', function(){
+            nav.classList.toggle('active');
+          });
+        }
+      })();
+
+      // fade-in animation on scroll (reference)
+      const items = document.querySelectorAll('.use-case');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.2 });
+      items.forEach(item => observer.observe(item));
+    </script>
+    <!-- Site scripts (optional, includes additional behaviors used on index) -->
+    <script src="script.js"></script>
+</body>
+</html>

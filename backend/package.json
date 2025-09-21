@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
+    "dev": "npx nodemon server.js",
     "import-data": "python import_data.py",
     "setup-db": "psql -U postgres -d marine_platform -f schema.sql"
   },

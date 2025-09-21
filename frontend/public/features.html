@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARINIX - Features</title>
+    <meta name="description" content="Explore the powerful features of MARINIX marine data platform">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            font-family: "Raleway", sans-serif;
+            margin: 0;
+            color: white;
+        }
+        
+        /* Navbar */
+        #navbar {
+            background: radial-gradient(
+                circle at center,     
+                #223869 0%,         
+                #0b2743 20%,       
+                #0a243d 40%,       
+                #0c2a46 70%,       
+                #11253e 100%  
+            );
+            padding: 15px 0;
+        }
+        
+        #brand-name {
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        #navopt {
+            color: white !important;
+            font-size: 18px;
+            font-weight: 500;
+            margin: 0 10px;
+        }
+        
+        #navopt:hover {
+            color: rgb(207, 206, 206) !important;
+        }
+        
+        /* Hero Section: use original styles from feature/style3.css */
+        
+        /* Typing animation and text styles provided by feature/style3.css */
+        
+        /* Feature section layout provided by feature/style3.css */
+        
+        /* Button styles provided by feature/style3.css (#map) */
+        
+        /* Footer styles provided by feature/style3.css (.foot) */
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #title {
+                font-size: 2.5rem;
+            }
+            
+            #sline {
+                font-size: 1.2rem;
+                top: 65%;
+            }
+            
+            .f1, .f2, .f3, .f4 {
+                font-size: 2rem;
+            }
+            
+            .p1, .p2, .p3, .p4 {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+            
+            .navbar-nav {
+                background: rgba(10, 36, 61, 0.9);
+                padding: 15px;
+                border-radius: 10px;
+                margin-top: 15px;
+            }
+        }
+    </style>
+    <!-- Original Feature Page stylesheet to preserve original layout -->
+    <link rel="stylesheet" href="feature/style3.css">
+</head>
+<body>
+    <!-- Global Navigation (same as index.html) -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-water"></i>
+                MARINIX
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="#" class="active">Features</a></li>
+                <li><a href="index.html#datasets">Datasets</a></li>
+                <li><a href="visualization.html">Visualization</a></li>
+                <li><a href="use-cases.html">Use Cases</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="index.html#contact" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Get Started</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    <section class="feature1">  
+        <h1 id="title">Features</h1>
+        <p id="sline">Powerful tools to Explore, Analyze, and Visualize Ocean Data with Ease</p>
+        <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#09192c" fill-opacity="1" d="M0,224L48,197.3C96,171,192,117,288,106.7C384,96,480,128,576,144C672,160,768,160,864,154.7C960,149,1056,139,1152,160C1248,181,1344,235,1392,261.3L1440,288L1440,320L0,320Z"></path>
+        </svg>
+    </section>
+
+    <!-- Features Section -->
+    <section class="feature2">
+        <h3 class="f1">Global Coverage</h3>
+        <p class="p1">Our platform integrates ocean data from satellites, buoys, ships, and sensors worldwide. Covering every ocean basin from polar to tropical regions, it offers both real-time updates and historical archives. This comprehensive reach empowers research, policy decisions, and sustainable ocean management on a global scale.</p>
+        <img src="./feature/earth.avif" alt="Global Coverage" class="img1">
+
+        <h3 class="f2">Real-time & Historical Data</h3>
+        <p class="p2">Access continuous real-time ocean observations alongside decades of archived records. This dual access enables immediate insights while supporting long-term trend analysis. From short-term events to climate-scale patterns, our data empowers informed research and decision-making.</p>
+        <img src="./feature/graph.png" alt="Data Analysis" class="img2">
+
+        <h3 class="f3">Interactive Visualizations</h3>
+        <p class="p3">Our platform turns complex ocean data into dynamic, easy-to-explore visuals. From interactive maps to advanced charts, users can uncover insights with just a click. These visualizations empower faster understanding, smarter decisions, and impactful outcomes.</p>
+        <button type="button" class="btn btn-outline-primary" id="map">View</button>
+        <img src="./feature/colorful-map.jpg" alt="Interactive Visualizations" class="img3">
+
+        <h3 class="f4">Custom Search & Filters</h3>
+        <p class="p4">Seamlessly explore vast datasets with intelligent search and advanced filtering options. Empower users to quickly refine results, uncover insights, and access only the information that matters. Deliver precision, efficiency, and control for a truly personalized data experience.</p>
+        <img src="./feature/search.jpg" alt="Search Functionality" class="img4">
+    </section>
+
+    <footer>
+        <div class="foot">
+            <p>Ready to dive deeper into the ocean?</p>
+            <button type="button" class="btn btn-outline-primary" id="dataset">Explore Datasets</button>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Mobile menu toggle for global navbar
+        (function(){
+            const toggle = document.getElementById('mobile-menu-toggle');
+            const nav = document.querySelector('.nav-links');
+            if (toggle && nav) {
+                toggle.addEventListener('click', function(){
+                    nav.classList.toggle('active');
+                });
+            }
+        })();
+        // Add smooth scrolling to all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add functionality to buttons
+        document.getElementById('map').addEventListener('click', function() {
+            window.location.href = 'visualization.html';
+        });
+        
+        document.getElementById('dataset').addEventListener('click', function() {
+            window.location.href = 'index.html#datasets';
+        });
+    </script>
+</body>
+</html>

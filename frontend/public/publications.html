@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARINIX - Publications</title>
+    <meta name="description" content="Access a comprehensive library of ocean research, reports, and expert insights">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Raleway", sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Navigation styles are provided by global style.css (#navbar) */
+        
+        /* Hero Section */
+        .hero {
+            background: url('./publication/bg2.png') no-repeat center center/cover;
+            min-height: 100vh;
+            padding-bottom: 180px; /* extend a bit more to fit taller search row */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-top: 0;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Search Section */
+        .search-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            width: 90%;
+            margin: -150px auto 0; /* overlap more so it sits on hero background */
+            position: relative;
+            z-index: 10;
+        }
+        
+        .search-form {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .search-form .form-select {
+            flex: 0 0 180px;
+        }
+        
+        .search-form .form-control {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        /* Inline category dropdown before search button */
+        .search-form .category-select {
+            flex: 0 0 220px;
+            max-width: 240px;
+        }
+        
+        /* Publications Grid */
+        .publications {
+            padding: 80px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: #0a243d;
+            margin-bottom: 30px;
+            font-weight: 700;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #0a8ea0;
+            display: inline-block;
+        }
+        
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .publication-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .publication-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-img-top {
+            height: 180px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            color: #0a243d;
+        }
+        
+        .card-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .card-title a:hover {
+            color: #0a8ea0;
+        }
+        
+        .publication-meta {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .publication-date {
+            color: #6c757d;
+            margin-right: 15px;
+        }
+        
+        .publication-authors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+        
+        .author-tag {
+            background-color: #e0f7fa;
+            color: #007bff;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .card-text {
+            color: #555;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .btn-download {
+            background-color: #0a8ea0;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            align-self: flex-start;
+        }
+        
+        .btn-download:hover {
+            background-color: #087684;
+            color: white;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.25rem;
+            }
+            
+            .search-form {
+                flex-direction: column;
+            }
+            
+            .search-form .form-select,
+            .search-form .form-control {
+                width: 100%;
+                flex: 1 1 100%;
+            }
+            
+            .publications-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .search-section {
+                padding: 20px;
+            }
+            
+            .publications {
+                padding: 60px 15px;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .publications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Global Navigation (same as index.html) -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-water"></i>
+                MARINIX
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="index.html#datasets">Datasets</a></li>
+                <li><a href="visualization.html">Visualization</a></li>
+                <li><a href="use-cases.html">Use Cases</a></li>
+                <li><a href="#" class="active">Publications</a></li>
+                <li><a href="index.html#contact" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Get Started</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Research Publications</h1>
+            <p>Access a comprehensive library of ocean research, reports, and expert insights. Stay updated with the latest findings to support science, policy, and innovation.</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <div class="search-section">
+        <form class="search-form">
+            <select class="form-select" aria-label="Select Year">
+                <option selected>Select Year</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+            </select>
+            <input type="text" class="form-control" placeholder="Search publications...">
+            <select class="form-select category-select" aria-label="Select Category">
+                <option selected>All Categories</option>
+                <option value="research">Research Papers</option>
+                <option value="reports">Technical Reports</option>
+                <option value="case-studies">Case Studies</option>
+                <option value="whitepapers">White Papers</option>
+            </select>
+            <button class="btn btn-primary px-4" type="submit">
+                <i class="bi bi-search"></i> Search
+            </button>
+        </form>
+    </div>
+
+    <!-- Publications Grid -->
+    <section class="publications">
+        <h2 class="section-title">Research Insights</h2>
+        
+        <div class="publications-grid">
+            <!-- Publication 1 -->
+            <div class="publication-card">
+                <img src="./publication/f8852d2c-6b39-482e-9dc1-b7c46b4783ac.jpeg" class="card-img-top" alt="Advanced Ocean Reanalysis">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="https://arxiv.org/abs/2503.06907" target="_blank">Advanced Ocean Reanalysis of the Northwestern Atlantic</a>
+                    </h5>
+                    <div class="publication-meta">
+                        <span class="publication-date">March 10, 2025</span>
+                        <div class="publication-authors">
+                            <span class="author-tag">Tianning Wu</span>
+                            <span class="author-tag">Ruoying He</span>
+                        </div>
+                    </div>
+                    <p class="card-text">Provides a 30-year high-resolution reanalysis improving ocean circulation and climate studies in the Northwestern Atlantic region.</p>
+                    <a href="#" class="btn-download">
+                        <i class="fas fa-download me-2"></i>Download PDF
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Publication 2 -->
+            <div class="publication-card">
+                <img src="./publication/r2.png" class="card-img-top" alt="Spatial-Temporal Data Mining">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="https://arxiv.org/abs/2307.10803" target="_blank">Spatial-Temporal Data Mining for Ocean Science</a>
+                    </h5>
+                    <div class="publication-meta">
+                        <span class="publication-date">July 20, 2023</span>
+                        <div class="publication-authors">
+                            <span class="author-tag">Hanchen Yang</span>
+                            <span class="author-tag">Shuyu Wang</span>
+                        </div>
+                    </div>
+                    <p class="card-text">Reviews how spatial-temporal ocean data is used for prediction, event detection, and anomaly analysis in marine science.</p>
+                    <a href="#" class="btn-download">
+                        <i class="fas fa-download me-2"></i>Download PDF
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Publication 3 -->
+            <div class="publication-card">
+                <img src="./publication/r2.png" class="card-img-top" alt="Ocean Current Analysis">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="https://arxiv.org/abs/2310.02031" target="_blank">OceanGPT: A Large Language Model for Ocean Science Tasks</a>
+                    </h5>
+                    <div class="publication-meta">
+                        <span class="publication-date">October 3, 2023</span>
+                        <div class="publication-authors">
+                            <span class="author-tag">Marine AI Research Team</span>
+                        </div>
+                    </div>
+                    <p class="card-text">Introduces a specialized language model trained on oceanographic literature to assist researchers in data analysis and hypothesis generation.</p>
+                    <a href="#" class="btn-download">
+                        <i class="fas fa-download me-2"></i>Download PDF
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Publication 4 -->
+            <div class="publication-card">
+                <img src="./publication/r4.jpeg" class="card-img-top" alt="Coastal Erosion Research">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="#" target="_blank">Deep Learning Approaches for Coral Reef Health Assessment</a>
+                    </h5>
+                    <div class="publication-meta">
+                        <span class="publication-date">January 15, 2024</span>
+                        <div class="publication-authors">
+                            <span class="author-tag">Emma Chen</span>
+                            <span class="author-tag">James Wilson</span>
+                            <span class="author-tag">Lisa Zhang</span>
+                        </div>
+                    </div>
+                    <p class="card-text">Presents a novel deep learning framework for automated coral reef health assessment using underwater imagery.</p>
+                    <a href="#" class="btn-download">
+                        <i class="fas fa-download me-2"></i>Download PDF
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Publication 5 -->
+            <div class="publication-card">
+                <img src="./publication/r5.png" class="card-img-top" alt="Marine Microplastics Research">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="#" target="_blank">Global Distribution and Impact of Marine Microplastics</a>
+                    </h5>
+                    <div class="publication-meta">
+                        <span class="publication-date">November 5, 2023</span>
+                        <div class="publication-authors">
+                            <span class="author-tag">Global Ocean Watch</span>
+                        </div>
+                    </div>
+                    <p class="card-text">Comprehensive study on the distribution, sources, and ecological impacts of microplastics in the world's oceans.</p>
+                    <a href="#" class="btn-download">
+                        <i class="fas fa-download me-2"></i>Download PDF
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Publication 6 -->
+            <div class="publication-card">
+                <img src="./publication/r3.png" class="card-img-top" alt="Marine Biodiversity Study">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="#" target="_blank">Long-term Effects of Ocean Acidification on Marine Ecosystems</a>
+                    </h5>
+                    <div class="publication-meta">
+                        <span class="publication-date">August 12, 2023</span>
+                        <div class="publication-authors">
+                            <span class="author-tag">Marine Biology Research Group</span>
+                            <span class="author-tag">Climate Change Institute</span>
+                        </div>
+                    </div>
+                    <p class="card-text">A 10-year longitudinal study examining the impacts of ocean acidification on various marine species and ecosystems.</p>
+                    <a href="#" class="btn-download">
+                        <i class="fas fa-download me-2"></i>Download PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Mobile menu toggle for global navbar
+        (function(){
+            const toggle = document.getElementById('mobile-menu-toggle');
+            const nav = document.querySelector('.nav-links');
+            if (toggle && nav) {
+                toggle.addEventListener('click', function(){
+                    nav.classList.toggle('active');
+                });
+            }
+        })();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

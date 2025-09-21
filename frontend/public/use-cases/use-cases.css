@@ -1,0 +1,78 @@
+ /* Background ocean/fishery image */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('https://i.pinimg.com/736x/b9/48/08/b948088201828e50bb0d1896658e8dc1.jpg') no-repeat center center/cover;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Dark overlay to make text readable */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 0;
+}
+
+/* Ensure main content sits above the overlay */
+.use-cases {
+  position: relative;
+  z-index: 1;
+  padding-top: 120px; /* clear fixed navbar and push content lower */
+  background: transparent !important; /* override global style.css deep-ocean background */
+}
+
+.page-title {
+  text-align: center;
+  font-size: 3rem;
+  margin: 30px 0 50px; /* slightly lower overall */
+  color: #e0f7fa;
+  text-shadow: 2px 2px 5px #000;
+}
+
+/* Use case layout */
+.use-case {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin: 60px auto;
+  width: 85%;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.use-case.reverse {
+  flex-direction: row-reverse;
+}
+
+.use-case img {
+  width: 400px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.text {
+  max-width: 500px;
+}
+
+.text h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #80deea;
+}
+
+.text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Show when in view */
+.use-case.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

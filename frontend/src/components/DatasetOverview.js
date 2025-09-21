@@ -1,14 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-function DatasetOverview() {
-  const [data, setData] = useState([]);
+function DatasetOverview({ data = [] }) {
   const [selectedCategory, setSelectedCategory] = useState('all');
-
-  useEffect(() => {
-    fetch('http://localhost:5000/api/occurrences')
-      .then(res => res.json())
-      .then(setData);
-  }, []);
 
   const categories = [
     { id: 'oceanography', name: 'Oceanography', color: 'bg-blue-500', count: data.filter(item => item.habitat && (item.habitat.includes('Benthic') || item.habitat.includes('Pelagic'))).length },
