@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Use Cases</title>
+  <link rel="stylesheet" href="use-cases.css">
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <section class="use-cases">
+    <h1 class="page-title">Our Use Cases</h1>
+
+    <div class="use-case">
+      <img src="https://i.pinimg.com/736x/1a/d2/d8/1ad2d81e76aed13e211da5e546333695.jpg" alt="Use Case 1">
+      <div class="text">
+        <h2>1. Marine Biodiversity Monitoring</h2>
+        <p>Monitoring the variety and population of marine species helps in assessing the health of oceans. By using datasets on fish counts, coral coverage, and migratory patterns, conservationists can identify endangered species and design protective measures.</p>
+      </div>
+    </div>
+
+    <div class="use-case reverse">
+      <img src="https://i.pinimg.com/1200x/f9/74/17/f974170b0bf86c3dc4fb3edbba9edc0c.jpg" alt="Use Case 2">
+      <div class="text">
+        <h2>2. Sustainable Fisheries Management</h2>
+        <p>Overfishing poses a serious threat to marine ecosystems. Data-driven fisheries management allows regulators to track catch volumes, identify overexploited regions, and enforce sustainable fishing practices. This helps maintain balance between human demand and ocean life.</p>
+      </div>
+    </div>
+
+    <div class="use-case">
+      <img src="https://i.pinimg.com/736x/36/f7/f0/36f7f09d09c4d021a839888f1e8f305d.jpg" alt="Use Case 3">
+      <div class="text">
+        <h2>3.Ocean Pollution Tracking</h2>
+        <p>Pollution from plastics, chemicals, and oil spills is one of the biggest dangers to marine ecosystems. Ocean datasets can be used to analyze pollution levels, identify high-risk zones, and suggest clean-up strategies to protect marine habitats.</p>
+      </div>
+    </div>
+
+    <div class="use-case reverse">
+      <img src="https://i.pinimg.com/736x/b0/5f/da/b05fdae2edd015c0de79565c674155a4.jpg" alt="Use Case 4">
+      <div class="text">
+        <h2>4.Climate Change Impact on Oceans</h2>
+        <p>Global warming is altering ocean currents, increasing water temperatures, and threatening marine life. By analyzing ocean temperature data, researchers can study the impact of climate change and predict risks like coral bleaching and species migration.</p>
+      </div>
+    </div>
+
+    <div class="use-case">
+      <img src="https://i.pinimg.com/1200x/26/6c/67/266c671d3004e25356a7c83d14907f6d.jpg" alt="Use Case 5">
+      <div class="text">
+        <h2>5. Smart Coastal & Disaster Management</h2>
+        <p>Oceans play a major role in natural disasters like cyclones and tsunamis. Data-driven models can predict coastal flooding, storm surges, and wave patterns, enabling early warning systems that help save lives and reduce economic damage.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <script>
+    // fade-in animation on scroll
+    const items = document.querySelectorAll('.use-case');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    items.forEach(item => observer.observe(item));
+  </script>
+</body>
+</html>
