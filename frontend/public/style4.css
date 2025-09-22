@@ -106,6 +106,8 @@ p {
   display: none; /* Hide on mobile by default */
   background: #000;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .video-background {
@@ -126,14 +128,7 @@ p {
   object-fit: cover;
 }
 
-.video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-}
+/* Video overlay removed */
 
 .video-content {
   position: relative;
