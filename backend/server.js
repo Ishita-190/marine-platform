@@ -8,12 +8,23 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Database connection with enhanced error handling
+console.log('🔍 Database Config Check:');
+console.log('DB_HOST:', process.env.DB_HOST ? '✅ Set' : '❌ Missing');
+console.log('DB_USER:', process.env.DB_USER ? '✅ Set' : '❌ Missing');
+console.log('DB_NAME:', process.env.DB_NAME ? '✅ Set' : '❌ Missing');
+console.log('DB_PORT:', process.env.DB_PORT ? '✅ Set' : '❌ Missing');
+console.log('DB_PASSWORD:', process.env.DB_PASSWORD ? '✅ Set' : '❌ Missing');
+
 const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
   database: process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT,
+  // SSL configuration for Render PostgreSQL
+  ssl: process.env.NODE_ENV === 'production' ? {
+    rejectUnauthorized: false
+  } : false,
   // Add connection timeout
   connectionTimeoutMillis: 5000,
   // Add idle timeout
