@@ -11,6 +11,7 @@ function Hero() {
             allow="autoplay; encrypted-media" 
             allowFullScreen
             id="youtube-iframe"
+            title="Marine background video showing ocean scenes"
           />
         </div>
       </div>
