@@ -1,30 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Navbar({ view, setView }) {
+function Navbar() {
   return (
-    <nav className="bg-blue-600 text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-xl font-bold">Marine Data Platform</h1>
-        <div className="space-x-4">
-          <button
-            onClick={() => setView('map')}
-            className={`px-4 py-2 rounded ${view === 'map' ? 'bg-blue-800' : 'bg-blue-500'}`}
-          >
-            Map View
-          </button>
-          <button
-            onClick={() => setView('chart')}
-            className={`px-4 py-2 rounded ${view === 'chart' ? 'bg-blue-800' : 'bg-blue-500'}`}
-          >
-            Chart View
-          </button>
-          <button
-            onClick={() => setView('dataset')}
-            className={`px-4 py-2 rounded ${view === 'dataset' ? 'bg-blue-800' : 'bg-blue-500'}`}
-          >
-            Dataset
-          </button>
-        </div>
+    <nav className="navbar">
+      <div className="nav-container">
+        <Link to="/" className="logo">
+          <i className="fas fa-water"></i>
+          MARINIX
+        </Link>
+        <ul className="nav-links">
+          <li><Link to="/#about">About</Link></li>
+          <li><Link to="/features">Features</Link></li>
+          <li><Link to="/#datasets">Datasets</Link></li>
+          <li><Link to="/visualization">Visualization</Link></li>
+          <li><Link to="/use-cases">Use Cases</Link></li>
+          <li><Link to="/publications">Publications</Link></li>
+          <li><Link to="/signup" className="btn btn-primary">Get Started</Link></li>
+        </ul>
+        <button className="mobile-menu-toggle">
+          <i className="fas fa-bars"></i>
+        </button>
       </div>
     </nav>
   );
