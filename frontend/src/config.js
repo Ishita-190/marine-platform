@@ -1,8 +1,16 @@
 const config = {
   // API base URL - changes based on environment
   API_BASE_URL: process.env.NODE_ENV === 'production' 
-    ? process.env.REACT_APP_API_URL || 'https://your-backend-url.railway.app'
+    ? process.env.REACT_APP_API_URL || 'https://marine-platform-backend.onrender.com'
     : process.env.REACT_APP_API_URL || 'http://localhost:5000',
+  
+  // Alternative production URLs for different platforms
+  PRODUCTION_URLS: {
+    render: 'https://marine-platform-backend.onrender.com',
+    aws: 'https://your-ecs-load-balancer.amazonaws.com',
+    digitalocean: 'https://marine-platform-backend.ondigitalocean.app',
+    vercel: 'https://your-backend.vercel.app'
+  },
   
   // Map configuration
   MAP_CONFIG: {

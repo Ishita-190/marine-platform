@@ -145,11 +145,6 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Marine Platform API is running' });
 });
 
-// Root health check for Railway
-app.get('/health', (req, res) => {
-  res.json({ status: 'OK', message: 'Marine Platform API is running' });
-});
-
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
