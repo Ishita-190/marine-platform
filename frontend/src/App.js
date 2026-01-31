@@ -7,6 +7,7 @@ import UseCases from './pages/UseCases';
 import Visualization from './pages/Visualization';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
+import Test from './pages/Test';
 import './index.css';
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
           <Route path="/visualization" element={<Visualization />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="*" element={<Landing />} />
         </Routes>
       </div>
     </Router>

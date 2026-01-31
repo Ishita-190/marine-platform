@@ -3,7 +3,7 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 // Initialize Mapbox access token from environment variables
-mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoiZGVtbyIsImEiOiJjbG8wNjR3d3owMW1mMmlvZDZoZzVhZ3J4In0.example';
 
 function MapView({ data = [] }) {
   const mapContainer = useRef(null);
@@ -15,9 +15,12 @@ function MapView({ data = [] }) {
     if (map.current) return; // Initialize map only once
 
     try {
-      // Verify token is available
-      if (!process.env.REACT_APP_MAPBOX_ACCESS_TOKEN) {
-        throw new Error('Mapbox access token is missing');
+      // Check if token is available or use fallback
+      const token = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
+      if (!token || token === 'REACT_APP_MAPBOX_ACCESS_TOKEN') {
+        // Show a simple placeholder when token is not available
+        setMapError('Mapbox access token is not configured. Please add REACT_APP_MAPBOX_ACCESS_TOKEN to your .env file.');
+        return;
       }
 
       // Initialize the map

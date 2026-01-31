@@ -39,7 +39,7 @@ function Publications() {
       <Navbar />
       
       {/* Publications Header */}
-      <section className="hero" style={{height: '50vh'}}>
+      <section className="hero small-hero">
         <div className="hero-overlay"></div>
         <div className="container hero-content">
           <h1>Research & Publications</h1>
